@@ -1,20 +1,20 @@
-from flask import Flask, request, jsonify, send_from_directory
-from flask_cors import CORS
+# app/routes.py
+from flask import Blueprint, request, jsonify, send_from_directory
 import yt_dlp
 import os
 
-app = Flask(__name__, static_folder='../frontend', static_url_path='')
-CORS(app)
+# Define un Blueprint para las rutas
+app_bp = Blueprint('app_bp', __name__)
 
-@app.route('/')
+@app_bp.route('/')
 def index():
-    return send_from_directory(app.static_folder, 'index.html')
+    return send_from_directory(app_bp.static_folder, 'index.html')
 
-@app.route('/ser1')
+@app_bp.route('/ser1')
 def ser1():
-    return send_from_directory(app.static_folder, 'ser1.html')
+    return send_from_directory(app_bp.static_folder, 'ser1.html')
 
-@app.route('/get-media-info', methods=['POST'])
+@app_bp.route('/get-media-info', methods=['POST'])
 def get_media_info():
     try:
         url = request.json.get('url')
@@ -23,7 +23,7 @@ def get_media_info():
 
         ydl_opts = {
             'format': 'best',
-            'cookiefile': '/etc/secrets/cookies.txt',
+            'cookiefile': '/etc/secrets/cookies.txt' if os.path.exists('/etc/secrets/cookies.txt') else None,
             'http_headers': {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36'
             }
@@ -55,6 +55,3 @@ def get_media_info():
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-
-if __name__ == '__main__':
-    app.run(debug=True)
