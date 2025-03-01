@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">YTD</div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicio">Servicio</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#acerca">Acerca de nosotros</a></li>
+        </ul>
+        <button class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <header id="inicio" class="hero-section">
+        <h1>Bienvenidos</h1>
+        <p>Descubre nuestros servicios y más</p>
+        <a href="#servicios" class="btn-primary">Descubrir más</a>
+    </header>
+
+    <main>
+        <section id="servicios" class="card-container">
+            <h2>Nuestros Servicios</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>YTD</h3>
+                    <a href="/ser1" class="btn-primary">Ir</a> <!-- Cambiado a ruta limpia -->
+                </div>
+                <div class="card">
+                    <h3>Servicio 2</h3>
+                    <p>En proceso</p>
+                </div>
+                <div class="card">
+                    <h3>Servicio 3</h3>
+                    <p>En proceso</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="contacto-section">
+            <h2>Contacto</h2>
+            <form id="contact-form" method="POST" action="/send-email">
+                <input type="text" name="nombre" placeholder="Nombre" required>
+                <input type="email" name="email" placeholder="Correo" required>
+                <textarea name="mensaje" placeholder="Mensaje" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>

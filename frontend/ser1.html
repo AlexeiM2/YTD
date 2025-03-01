@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicio 1</title>
+    <link rel="stylesheet" href="ser1.css">
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-button">← Volver al inicio</a>
+        <h1>Descargador de Audio y Video</h1>
+        
+        <form id="mediaForm">
+            <input 
+                type="text" 
+                id="urlInput"
+                placeholder="Ingresa el enlace de YouTube"
+                required
+            >
+            <button type="submit">Buscar</button>
+        </form>
+
+        <div id="mediaContainer"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
